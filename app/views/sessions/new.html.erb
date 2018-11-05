@@ -1,15 +1,4 @@
-<% provide(:title, "Log in") %>
-
-
 <h1>Connecte-toi</h1>
-
-<% if flash[:info]%>
-  <p class="alert alert-info"><%=flash[:info]%></p> 
-<% elsif flash[:danger]%>
-  <p class="alert alert-danger"><%=flash[:danger]%></p>
-<% elsif flash[:success]%>
-  <p class="alert alert-success"><%=flash[:success]%></p>
-<% end%>
 
 <% @user = User.new %>
 <%= form_for @user, :url => login_path do |f|%>

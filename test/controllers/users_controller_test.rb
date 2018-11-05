@@ -1,24 +1,27 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get users_new_url
-    assert_response :success
+
+  def setup
+    @michael = users(:michael)
   end
 
-  test "should get create" do
-    get users_create_url
-    assert_response :success
+
+  test "sign in with valid information" do
+    get new_user_path
+    assert_difference 'User.count', 1 do
+      post users_path, params:{user:{first_name:"Pince", last_name: "Moi", email:"pince.moi@thp.com"}}
+    end
+    follow_redirect!
+    assert_template 'users/show'
+    assert is_logged_in?
   end
 
-  test "should get show" do
-    get users_show_url
-    assert_response :success
-  end
-
-  test "should get index" do
-    get users_index_url
-    assert_response :success
+  test "sign in with invalid information" do
+    get new_user_path
+    assert_difference 'User.count', 0 do
+      post users_path, params:{user:{first_name:"Pince", last_name: "Moi", email:@michael.email}}
+    end
   end
 
 end

@@ -1,12 +1,13 @@
 <h1>Users#index</h1>
 <div class="row">
+  <% @users = User.all %>
   <% @users.each do |user| %>
     <div class="card col-lg-3" >
       <div class="card-body">
         <h5 class="card-title"> User number : <%= user.id %>  </h5>
         <h6 class="card-subtitle mb-2 text-muted"> First_name: <%=user.first_name%> </h6>
         <h6 class="card-subtitle mb-2 text-muted"> Last_name: <%=user.last_name%> </h6>
-        <p class="card-text" > Email: <%= user.email %> </p>
+        <%= link_to "Détails", user_path(user.id), class: "btn btn-lg btn-primary" %>
       </div>
     </div>
   <% end %>

@@ -1,11 +1,3 @@
-<% if flash[:info]%>
-  <p class="alert alert-info"><%=flash[:info]%></p> 
-<% elsif flash[:danger]%>
-  <p class="alert alert-danger"><%=flash[:danger]%></p>
-<% elsif flash[:success]%>
-  <p class="alert alert-success"><%=flash[:success]%></p>
-<% end%>
-
 <h1>Enregistre toi </h1>
 
 <% @user = User.new %>

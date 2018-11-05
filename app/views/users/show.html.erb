@@ -7,6 +7,7 @@
         <h6 class="card-subtitle mb-2 text-muted"> First_name : <%=@user.first_name%> </h6>
         <h6 class="card-subtitle mb-2 text-muted"> Last_name : <%= @user.first_name%> </h6>
         <p class="card-text" > Email: <%= @user.email %> </p>
+        <%= link_to "Le Grand SECRET !", secret_path, class: "btn btn-lg btn-primary" %>
       </div>
     </div>
 </div>

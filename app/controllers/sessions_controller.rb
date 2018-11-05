@@ -17,4 +17,9 @@ class SessionsController < ApplicationController
     log_out
     redirect_to(root_path)
   end
+
+  def toto
+    return true
+  end
+  
 end
