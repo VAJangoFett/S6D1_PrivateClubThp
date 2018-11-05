@@ -6,7 +6,7 @@ class StaticsControllerTest < ActionDispatch::IntegrationTest
     @michael = users(:michael)
   end
 
-  test "home page with logged-out user" do
+  test "home page without a logged in user" do
     get root_path
     assert_select "a[href=?]", login_path, count: 2
     assert_select "a[href=?]", logout_path, count: 0
@@ -14,7 +14,7 @@ class StaticsControllerTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", users_path, count: 0
   end
 
-  test "home page with logged-in user" do
+  test "home page with a logged in user" do
     get login_path
     post login_path, params:{user:{email:@michael.email}}
     assert_redirected_to @michael

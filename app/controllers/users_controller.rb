@@ -17,14 +17,10 @@ class UsersController < ApplicationController
   end
 
   def show
-
-
-    if (logged_in? && params[:id].to_i == session[:user_id].to_i)
-      @user = User.find(current_user[:id])
-    elsif (params[:id].to_i != session[:user_id].to_i)
+    if (logged_in? && params[:id].to_i != session[:user_id].to_i)
       flash.now[:danger] = "you can not access to any other user but yourserlf"
-      render 'index'
-    else
+      render 'show'
+    elsif (!logged_in?)
       flash.now[:danger] = "you need to subscrib (or login)"
       render 'new'
     end

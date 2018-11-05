@@ -1,12 +1,13 @@
 <h1>Ton Profil</h1>
 
+<% @user = User.find(current_user[:id]) %>
 <div class="row">
     <div class="card col-lg-3" >
       <div class="card-body">
         <h5 class="card-title"> User number : <%= @user.id %>  </h5>
         <h6 class="card-subtitle mb-2 text-muted"> First_name : <%=@user.first_name%> </h6>
         <h6 class="card-subtitle mb-2 text-muted"> Last_name : <%= @user.first_name%> </h6>
-        <p class="card-text" > Email: <%= @user.email %> </p>
+        <p class="card-text" > Email : <%= @user.email %> </p>
         <%= link_to "Le Grand SECRET !", secret_path, class: "btn btn-lg btn-primary" %>
       </div>
     </div>
