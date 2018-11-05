@@ -1,0 +1,28 @@
+<% provide(:title, "Log in") %>
+
+
+<h1>Connecte-toi</h1>
+
+<% if flash[:info]%>
+  <p class="alert alert-info"><%=flash[:info]%></p> 
+<% elsif flash[:danger]%>
+  <p class="alert alert-danger"><%=flash[:danger]%></p>
+<% elsif flash[:success]%>
+  <p class="alert alert-success"><%=flash[:success]%></p>
+<% end%>
+
+<% @user = User.new %>
+<%= form_for @user, :url => login_path do |f|%>
+  <div class="col-md-6">
+
+    <div class="form-group">
+      <label>Email</label>  
+      <%= f.text_field :email, class: "form-control", placeholder: "jean.dupont@email.com" %>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+
+  </div>
+<%end%>

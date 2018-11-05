@@ -1,0 +1,16 @@
+<div class="center jumbotron text-center">
+
+  <%if logged_in? %>
+    <h1>Bienvenue <%= current_user.first_name%> !</h1>
+  <%else%>
+    <h1>Bienvenue !</h1>
+  <%end%>
+  <h3>
+    Ici, tu peux retrouver le grand SECRET des moussaillons !
+  </h3>
+  <br>
+  <%= link_to "Enregistre-toi !", new_user_path, class: "btn btn-lg btn-primary" %>
+  <%unless @current_user%>
+    <%= link_to "Connecte-toi !", login_path, class: "btn btn-lg btn-link" %>
+  <%end%>
+</div>

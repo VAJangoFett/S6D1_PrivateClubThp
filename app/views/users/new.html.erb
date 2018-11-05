@@ -1,0 +1,35 @@
+<% if flash[:info]%>
+  <p class="alert alert-info"><%=flash[:info]%></p> 
+<% elsif flash[:danger]%>
+  <p class="alert alert-danger"><%=flash[:danger]%></p>
+<% elsif flash[:success]%>
+  <p class="alert alert-success"><%=flash[:success]%></p>
+<% end%>
+
+<h1>Enregistre toi </h1>
+
+<% @user = User.new %>
+<%= form_for @user do |f|%>
+  <div class="col-md-6">
+
+    <div class="form-group">
+      <label>First Name</label>  
+      <%= f.text_field :first_name, class: "form-control", placeholder: "Jean" %>
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>  
+      <%= f.text_field :last_name, class: "form-control", placeholder: "Dupont" %>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>  
+      <%= f.text_field :email, class: "form-control", placeholder: "jean.dupont@email.com" %>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Créer l'utilisateur</button>
+    </div>
+
+  </div>
+<%end%>
