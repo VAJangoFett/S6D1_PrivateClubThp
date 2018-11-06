@@ -10,11 +10,11 @@
         <a class="nav-link" href = "<%= root_path %>"> home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href = "<%= new_user_path %>"> Nouveau user <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href = "<%= new_user_path %>"> Nouvel utilisateur  <span class="sr-only">(current)</span></a>
       <%if logged_in? %>
         </li>
               <li class="nav-item active">
-          <a class="nav-link" href = "<%= users_path %>"> Index users <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href = "<%= users_path %>"> Index utilisateurs <span class="sr-only">(current)</span></a>
         </li>
       <% end %>
     </ul>
@@ -24,20 +24,20 @@
 
         <li class="dropdown nav-item active">
           <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-            Account <b class="caret"></b>
+            Compte <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
             <li><%= link_to "Profile", current_user %></li>
             <li class="divider"></li>
             <li>
-              <%= link_to "Log out", logout_path, method: :delete %>
+              <%= link_to "Déconnexion", logout_path, method: :delete %>
             </li>
           </ul>
         </li>
 
       <% else %>
         <li class="nav-item active" >
-          <a class="nav-link" href = "<%= login_path %>"> Login <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href = "<%= login_path %>"> Connexion <span class="sr-only">(current)</span></a>
         </li>
       <% end %>
 
